@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_29_091038) do
+ActiveRecord::Schema.define(version: 2020_02_04_091257) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -18,5 +18,8 @@ ActiveRecord::Schema.define(version: 2020_01_29_091038) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+# Could not dump table "comments" because of following StandardError
+#   Unknown type 'true' for column 'foreign_key'
 
 end
