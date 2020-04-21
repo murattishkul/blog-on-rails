@@ -34,9 +34,6 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-# Make errors look better
-gem 'better_errors', '~> 2.6'
-
 #Bulma css
 gem 'bulma-rails', '~> 0.8.0'
 
@@ -62,6 +59,8 @@ group :development do
   gem 'guard', '~> 2.16', '>= 2.16.2'
   #Guard::LiveReload automatically reloads your browser when 'view' files are modified.
   gem 'guard-livereload', '~> 2.5', '>= 2.5.2', require: false
+  # Make errors look better
+  gem 'better_errors', '~> 2.6'
 end
 
 group :test do
