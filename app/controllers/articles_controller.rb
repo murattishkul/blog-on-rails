@@ -1,9 +1,9 @@
 class ArticlesController < ApplicationController
-
+    before_action :find_posts, only: [:show, :update, :edit, :destroy]
     http_basic_authenticate_with  name:"dhh", password: "secret", except: [:index, :show]
-
+    
     def index
-        @articles = Article.all # returns all objects of Article model class
+        @articles = Article.all.order("created_at DESC") # returns all objects of Article model class
     end
     
     def show # @article is an instance variable which is used to share data between controller and views
@@ -24,9 +24,7 @@ class ArticlesController < ApplicationController
     end
 
     def create # POST request
-        @article = Article.new(article_params) # secure pattern | strong parameters tells which 
-                                                                               # params are allowed into our controller actions
-
+        @article = Article.new(article_params) # secure pattern | strong parameters tells which params are allowed into our controller actions
         if @article.save
             redirect_to @article
         else
@@ -58,8 +56,11 @@ class ArticlesController < ApplicationController
         redirect_to articles_path
     end
 
-    private
-        def article_params
-            params.require(:article).permit(:title, :text)
-        end
+private
+    def find_posts
+        @article = Article.find(params[:id])
+    end
+    def article_params
+        params.require(:article).permit(:title, :text)
+    end
 end
