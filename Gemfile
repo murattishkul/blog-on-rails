@@ -60,7 +60,7 @@ group :development do
   #Guard::LiveReload automatically reloads your browser when 'view' files are modified.
   gem 'guard-livereload', '~> 2.5', '>= 2.5.2', require: false
   # Make errors look better
-  gem 'better_errors', '~> 2.6'
+  gem 'better_errors', '~> 2.8'
 end
 
 group :test do
